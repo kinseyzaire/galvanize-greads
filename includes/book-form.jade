@@ -12,11 +12,17 @@
   p
     label(for="description") Book Description
     br
-    textarea.form-control(rows="2" id='description' name='description')= (book) ? book.description : ''
+    textarea.form-control(rows="7" id='description' name='description')= (book) ? book.description : ''
 .form-group
   p
     label(for="cover_url") Book Cover URL
     br
     input.form-control(type="text" id="cover_url" name='cover_url' placeholder="Book Cover URL" value= (book ? book.cover_url : ''))
-
-//- authors box add and delete individual authors
+.form-group
+  if authors
+    p  
+    label(for="author_id") Add an Author
+    select.form-control(name="author_id" id="author_id")
+      option(disabled selected) Choose Existing Author
+      for author in authors
+        option(value="#{author.id}" selected=(book ? (book.author_id === "#{author.id}" ? "selected" : undefined) : undefined)) #{author.firstname} #{author.lastname}

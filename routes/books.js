@@ -20,7 +20,9 @@ router.get('/books', function(req, res, next) {
 // new BOOK
 
 router.get('/books/new', function(req, res, next) {
-  res.render('books/new');
+  Authors().select().then(function(results){
+    res.render('books/new', {authors: results});
+  });
 });
 
 // add new BOOK to db
@@ -43,7 +45,9 @@ router.get('/books/:id', function (req, res, next) {
 
 router.get('/books/:id/edit', function (req, res) {
   Books().where('id', req.params.id).first().then(function(result){
-    res.render('books/edit', { book: result });
+    Authors().select().then(function(results){
+      res.render('books/edit', { book: result, authors: results });
+    });
   });
 });
 

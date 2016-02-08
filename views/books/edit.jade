@@ -6,6 +6,7 @@ block content
     .row
       .col-xl-12
       if book
+        h2 Edit Book
         form(method="POST" action="/books/#{book.id}")
           .hidden
             input(type="number" id="id" name='id' value= (book ? book.id : undefined))
