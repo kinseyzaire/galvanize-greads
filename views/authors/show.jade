@@ -9,6 +9,8 @@ block content
           h3 #{author.firstname} #{author.lastname}
           | #{author.bio}
         p
+          img(src="#{author.portrait_url}" alt="Portrait of #{author.firstname} #{author.lastname}")
+        p
           a(href="/authors/#{author.id}/edit") Edit Author
           br
           a(href="/authors/#{author.id}/delete") Delete Author

@@ -4,10 +4,20 @@ block content
   .container
     include ../../includes/logo-top
     .row
+      h1 Books
       a(href="/books/new") Add a Book
-    .row
-      if books
-        for book in books
-          p
-            h3  
-              a(href="/books/#{book.id}") #{book.title}
+  if books
+    for book in books
+      .row
+        .col-md-12
+          .col-md-2.pull-left
+            p
+              img(src="#{book.cover_url}" alt="#{book.title} cover" width="75%")
+          .col-md-10.pull-left      
+            p
+              h3  
+                a(href="/books/#{book.id}") #{book.title}
+            p
+              | #{book.genre}
+            p  
+              | #{book.description}

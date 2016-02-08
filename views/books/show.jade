@@ -5,7 +5,19 @@ block content
     include ../../includes/logo-top
     .row
       if book
-        h3 #{book.title}
-        a(href="/books/#{book.id}/edit") Edit Book
-        br
-        a(href="/books/#{book.id}/delete") Delete Book
+        .col-md-12
+          a(href="/books/#{book.id}/edit") Edit Book
+          br
+          a(href="/books/#{book.id}/delete") Delete Book
+        .col-md-12
+          .col-md-2.pull-left
+            p
+              img(src="#{book.cover_url}" alt="#{book.title} cover" width="75%")
+          .col-md-10.pull-left      
+            p
+              h3  
+                a(href="/books/#{book.id}") #{book.title}
+            p
+              | #{book.genre}
+            p  
+              | #{book.description}
