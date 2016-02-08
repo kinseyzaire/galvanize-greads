@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  .container
+    include ../../includes/logo-top
+    .row
+      a(href="/authors/new") Add an Author
+    .row
+      if authors
+        for author in authors
+          p
+            h3  
+              a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}

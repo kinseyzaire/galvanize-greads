@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  .container
+    include ../../includes/logo-top
+    .row
+      if author
+        p
+          h3 #{author.firstname} #{author.lastname}
+          | #{author.bio}
+        p
+          a(href="/authors/#{author.id}/edit") Edit Author
+          br
+          a(href="/authors/#{author.id}/delete") Delete Author

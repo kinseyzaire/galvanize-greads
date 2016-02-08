@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  .container
+    include ../../includes/logo-top
+    .row
+      a(href="/books/new") Add a Book
+    .row
+      if books
+        for book in books
+          p
+            h3  
+              a(href="/books/#{book.id}") #{book.title}

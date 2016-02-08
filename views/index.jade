@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    include ../includes/logo-top
+    .row
+      p
+        a(href="/books") Show all BOOKS
+      p
+        a(href="/authors") Show all AUTHORS
+        

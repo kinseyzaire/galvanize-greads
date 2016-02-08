@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .container 
+    include ../../includes/logo-top
+    .row
+      .col-xl-12
+        form(method="POST" action="/authors")
+          include ../../includes/author-form
+          .form-group.footer
+            button.btn.btn-default(type="submit") Add Author 
+            a.btn.btn-danger(href="/authors") Cancel

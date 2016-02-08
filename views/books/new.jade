@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .container
+    include ../../includes/logo-top
+    .row
+      .col-xl-12
+        form(method="POST" action="/books")
+          include ../../includes/book-form
+          .form-group.footer
+            button.btn.btn-default(type="submit") Add Book 
+            a.btn.btn-danger(href="/books") Cancel

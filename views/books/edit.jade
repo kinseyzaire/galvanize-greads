@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .container
+    include ../../includes/logo-top
+    .row
+      .col-xl-12
+      if book
+        form(method="POST" action="/books/#{book.id}")
+          .hidden
+            input(type="number" id="id" name='id' value= (book ? book.id : undefined))
+          include ../../includes/book-form
+          .form-group.footer
+            button.btn.btn-default(type="submit") Submit Changes
+            a.btn.btn-danger(href="/books") Cancel
