@@ -12,8 +12,10 @@ function Authors() {
 
 // AUTHORS index
 router.get('/authors', function(req, res, next) {
-  Authors().select().then(function(results){
-    res.render('authors/index', {authors: results});
+  Authors().select().then(function(aresults){
+    Books().select().then(function(bresults){
+      res.render('authors/index', {authors: aresults, books: bresults});
+    });
   });
 });
 
@@ -35,7 +37,9 @@ router.post('/authors', function(req, res, next) {
 
 router.get('/authors/:id', function (req, res, next) {
   Authors().where('id', req.params.id).first().then(function(result){
-    res.render('authors/show', { author: result });
+    Books().where('author_id', req.params.id).then(function(results){
+      res.render('authors/show', { author: result, books: results });
+    });
   });
 });
 

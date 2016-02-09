@@ -2,22 +2,27 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
     .row
-      if book
-        .col-md-12
-          a(href="/books/#{book.id}/edit") Edit Book
-          br
-          a(href="/books/#{book.id}/delete") Delete Book
-        .col-md-12
-          .col-md-2.pull-left
-            p
-              img(src="#{book.cover_url}" alt="#{book.title} cover" width="75%")
-          .col-md-10.pull-left      
-            p
-              h3  
-                a(href="/books/#{book.id}") #{book.title}
-            p
-              | #{book.genre}
-            p  
-              | #{book.description}
+      include ../../includes/logo-top
+      .col-md-8.col-md-offset-1.pull-left.mmmain
+        if book
+          .col-md-12
+            a(href="/books/#{book.id}/edit") Edit Book
+            br
+            a(href="/books/#{book.id}/delete") Delete Book
+          .col-md-12
+            .col-md-4.pull-left
+              p
+                img(src="#{book.cover_url}" alt="#{book.title} cover" width="100%%")
+            .col-md-8.pull-left      
+              p
+                h3 #{book.title}
+            .col-md-8.pull-left      
+              p
+                | By 
+                a(href="/authors/#{book.author_id}") author
+            .col-md-8.pull-left      
+              p
+                | #{book.genre}
+              p  
+                | #{book.description}

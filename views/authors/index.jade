@@ -2,13 +2,13 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
     .row
-      h1 Authors
-      a(href="/authors/new") Add an Author
-    .row
-      if authors
-        for author in authors
-          p
-            h3  
-              a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}
+      include ../../includes/logo-top
+      .col-md-8.col-md-offset-1.pull-left.mmmain
+        h1 Authors
+        a(href="/authors/new") Add an Author
+        if authors
+          for author in authors
+            p
+              h3  
+                a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}

@@ -2,15 +2,16 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
-    .row
-      .col-xl-12
-      if author
-        h2 Edit Author
-        form(method="POST" action="/authors/#{author.id}")
-          .hidden
-            input(type="number" id="id" name='id' value= (author ? author.id : undefined))
-          include ../../includes/author-form
-          .form-group.footer
-            button.btn.btn-default(type="submit") Submit Changes
-            a.btn.btn-danger(href="/authors") Cancel
+    if author
+      .row
+        include ../../includes/logo-top
+        .col-md-8.col-md-offset-1.pull-left.mmmain
+          p
+            h2 Edit Author
+            form(method="POST" action="/authors/#{author.id}")
+              .hidden
+                input(type="number" id="id" name='id' value= (author ? author.id : undefined))
+              include ../../includes/author-form
+              .form-group.footer
+                button.btn.btn-default(type="submit") Submit Changes
+                a.btn.btn-danger(href="/authors") Cancel

@@ -1,13 +1,14 @@
 extends ../layout
 
 block content
-  .container 
-    include ../../includes/logo-top
+  .container
     .row
-      .col-xl-12
-        h2 Add a New Author
-        form(method="POST" action="/authors")
-          include ../../includes/author-form
-          .form-group.footer
-            button.btn.btn-default(type="submit") Add Author 
-            a.btn.btn-danger(href="/authors") Cancel
+      include ../../includes/logo-top
+      .col-md-8.col-md-offset-1.pull-left.mmmain
+        p
+          h2 Add a New Author
+          form(method="POST" action="/authors")
+            include ../../includes/author-form
+            .form-group.footer
+              button.btn.btn-default(type="submit") Add Author 
+              a.btn.btn-danger(href="/authors") Cancel

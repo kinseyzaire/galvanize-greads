@@ -10,6 +10,11 @@ function Authors() {
    return knex('authors');
 }
 
+// LEFT JOIN
+// function BigBooks() {
+//   return knex.select().from('books').leftJoin('authors', 'books.author_id', 'authors.id')
+// }
+
 // BOOKS index
 router.get('/books', function(req, res, next) {
   Books().select().then(function(results){
@@ -36,8 +41,8 @@ router.post('/books', function(req, res, next) {
 // show BOOK
 
 router.get('/books/:id', function (req, res, next) {
-  Books().where('id', req.params.id).first().then(function(result){
-    res.render('books/show', { book: result });
+  Books().where('books.id', req.params.id).first().then(function(result){
+    res.render('books/show', {book: result});
   });
 });
 

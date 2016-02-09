@@ -2,15 +2,26 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
-    .row
-      if author
-        p
-          h3 #{author.firstname} #{author.lastname}
-          | #{author.bio}
-        p
-          img(src="#{author.portrait_url}" alt="Portrait of #{author.firstname} #{author.lastname}")
-        p
-          a(href="/authors/#{author.id}/edit") Edit Author
-          br
-          a(href="/authors/#{author.id}/delete") Delete Author
+    if author
+      .row
+        include ../../includes/logo-top
+        .col-md-8.col-md-offset-1.pull-left.mmmain
+          .col-md-4.pull-left  
+            p
+              img(src="#{author.portrait_url}" alt="Portrait of #{author.firstname} #{author.lastname}")
+          .col-md-8.pull-left    
+            p
+              h1 #{author.firstname} #{author.lastname}
+            p
+              | #{author.bio}
+            p
+              a(href="/authors/#{author.id}/edit") Edit Author
+              br
+              a(href="/authors/#{author.id}/delete") Delete Author
+            if books
+              p
+                h3 Books by #{author.firstname} #{author.lastname}
+                for book in books
+                  p
+                    a(href="/books/#{book.id}") #{book.title}
+                

@@ -2,22 +2,26 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
     .row
-      h1 Books
-      a(href="/books/new") Add a Book
-  if books
-    for book in books
-      .row
-        .col-md-12
-          .col-md-2.pull-left
-            p
-              img(src="#{book.cover_url}" alt="#{book.title} cover" height="200px")
-          .col-md-10.pull-left      
-            p
-              h3  
-                a(href="/books/#{book.id}") #{book.title}
-            p
-              | #{book.genre}
-            p  
-              | #{book.description}
+      include ../../includes/logo-top
+      .col-md-8.col-md-offset-1.pull-left.mmmain
+        p
+          h1 Books
+          a(href="/books/new") Add a Book
+        if books
+          .col-md-12
+            for book in books
+              .bbbook(style="overflow:auto;")
+                .col-md-4.pull-left
+                  p
+                    img(src="#{book.cover_url}" alt="#{book.title} cover" width="100%")
+                .col-md-8.pull-left      
+                  p
+                    h3  
+                      a(href="/books/#{book.id}") #{book.title}      
+                    | By 
+                    a(href="/authors/#{book.author_id}") author
+                  p
+                    | #{book.genre} 
+                  p  
+                    | #{book.description}

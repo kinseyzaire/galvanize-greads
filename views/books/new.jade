@@ -2,12 +2,13 @@ extends ../layout
 
 block content
   .container
-    include ../../includes/logo-top
     .row
-      .col-xl-12
-        h2 Add a New Book
-        form(method="POST" action="/books")
-          include ../../includes/book-form
-          .form-group.footer
-            button.btn.btn-default(type="submit") Add Book 
-            a.btn.btn-danger(href="/books") Cancel
+      include ../../includes/logo-top
+      .col-md-8.col-md-offset-1.pull-left.mmmain
+        p
+          h2 Add a New Book
+          form(method="POST" action="/books")
+            include ../../includes/book-form
+            .form-group.footer
+              button.btn.btn-default(type="submit") Add Book 
+              a.btn.btn-danger(href="/books") Cancel

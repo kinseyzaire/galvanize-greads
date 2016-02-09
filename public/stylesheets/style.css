@@ -1,6 +1,11 @@
+* {
+  /*border: 1px solid red;*/
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: whitesmoke;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -9,4 +14,10 @@ h1,h2,h3,h4,h5,h6 {
 
 a {
   color: #111111;
+}
+
+.mmmain {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  padding: 25px;
 }
