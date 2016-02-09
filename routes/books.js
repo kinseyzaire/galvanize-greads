@@ -14,6 +14,7 @@ function Authors() {
 router.get('/books', function(req, res, next) {
   Books().select().then(function(bresults){
     Authors().select().then(function(aresults){
+      console.log(aresults);
       res.render('books/index', {books: bresults , authors: aresults});
     });
   });

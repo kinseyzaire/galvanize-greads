@@ -22,6 +22,15 @@ a {
   padding: 25px;
 }
 
+.mmmain img {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.authorsss {
+  overflow: auto;
+}
+
 .bbbook {
   overflow: auto;
 }

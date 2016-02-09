@@ -24,20 +24,20 @@ block content
                     if authors
                       span(style=(book.author_id_1 ? "display: inline-block" : "display: none"))
                         | By 
-                        - var namey = authors[book.author_id_1-1].firstname + " " + authors[book.author_id_1].lastname
-                        a(href="/authors/#{book.author_id_1}")=namey
+                        for author in authors
+                          if author.id === book.author_id_1
+                            a(href="/authors/#{book.author_id_1}") #{author.firstname} #{author.lastname}
                       span(style=(book.author_id_2 ? "display: inline-block" : "display: none"))
                         | , 
-                        if book.author_id_2 === !null
-                          - var namey2 = authors[book.author_id_2-1].firstname + " " + authors[book.author_id_2].lastname
-                          a(href="/authors/#{book.author_id_2}")=namey2
+                        for author in authors
+                          if author.id === book.author_id_2
+                            a(href="/authors/#{book.author_id_2}") #{author.firstname} #{author.lastname}
                       span(style=(book.author_id_3 ? "display: inline-block" : "display: none"))
                         | ,  
-                        if book.author_id_3 === !null
-                          - var namey3 = authors[book.author_id_3-1].firstname + " " + authors[book.author_id_3].lastname
-                          a(href="/authors/#{book.author_id_3}")=namey3
-                  p
-                    | #{book.genre} 
+                        for author in authors
+                          if author.id === book.author_id_3
+                            a(href="/authors/#{book.author_id_3}") #{author.firstname} #{author.lastname}
+                  h5 #{book.genre} 
                   p  
                     | #{book.description}
               hr      

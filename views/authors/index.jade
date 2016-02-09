@@ -10,7 +10,20 @@ block content
         h1 Authors
         hr
         if authors
-          for author in authors
-            p
-              h3  
-                a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}
+          .col-md-12
+            for author in authors
+              .authorsss
+                .col-md-3.pull-left
+                  p
+                    img(src="#{author.portrait_url}" alt="#{author.lastname} portrait" width="100%")
+                .col-md-9.pull-left      
+                  h3  
+                    a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}
+                  p #{author.bio}
+                  h4 Books by #{author.firstname} #{author.lastname}
+                  if books
+                    for book in books
+                      if book.author_id_1 === author.id || book.author_id_2 === author.id || book.author_id_3 === author.id
+                        a(href="/books/#{book.id}") #{book.title}
+                        br
+              hr  
