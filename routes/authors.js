@@ -37,7 +37,8 @@ router.post('/authors', function(req, res, next) {
 
 router.get('/authors/:id', function (req, res, next) {
   Authors().where('id', req.params.id).first().then(function(result){
-    Books().where('author_id', req.params.id).then(function(results){
+    // need to grab all author_id_* how?
+    Books().where('author_id_1', req.params.id).orWhere('author_id_2', req.params.id).orWhere('author_id_3', req.params.id).then(function(results){
       res.render('authors/show', { author: result, books: results });
     });
   });
