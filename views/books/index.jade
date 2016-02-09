@@ -21,7 +21,13 @@ block content
                     h3  
                       a(href="/books/#{book.id}") #{book.title}      
                     | By 
-                    a(href="/authors/#{book.author_id}") author
+                    a(href="/authors/#{book.author_id_1}") author 1
+                    span(style=( book.author_id_2 ? "display: inline-block" : "display: none" ))
+                      | , 
+                      a(href="/authors/#{book.author_id_2}") author 2
+                    span(style=( book.author_id_3 ? "display: inline-block" : "display: none" ))
+                      | ,  
+                      a(href="/authors/#{book.author_id_3}") author 3
                   p
                     | #{book.genre} 
                   p  
