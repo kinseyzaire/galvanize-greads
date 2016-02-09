@@ -9,7 +9,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Playfair Display', serif;
+font-family: 'Inconsolata', monospace;
 }
 
 a {
@@ -20,4 +20,8 @@ a {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 3px;
   padding: 25px;
+}
+
+.bbbook {
+  overflow: auto;
 }

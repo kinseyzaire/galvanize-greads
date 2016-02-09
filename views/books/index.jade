@@ -5,13 +5,14 @@ block content
     .row
       include ../../includes/logo-top
       .col-md-8.col-md-offset-1.pull-left.mmmain
-        p
-          h1 Books
-          a(href="/books/new") Add a Book
+        a(href="/books/new") Add a Book
+        hr  
+        h1 Books
+        hr  
         if books
           .col-md-12
             for book in books
-              .bbbook(style="overflow:auto;")
+              .bbbook
                 .col-md-4.pull-left
                   p
                     img(src="#{book.cover_url}" alt="#{book.title} cover" width="100%")
@@ -25,3 +26,4 @@ block content
                     | #{book.genre} 
                   p  
                     | #{book.description}
+              hr      

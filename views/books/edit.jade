@@ -8,6 +8,7 @@ block content
         .col-md-8.col-md-offset-1.pull-left.mmmain
           p
             h2 Edit Book
+            hr
             form(method="POST" action="/books/#{book.id}")
               .hidden
                 input(type="number" id="id" name='id' value= (book ? book.id : undefined))

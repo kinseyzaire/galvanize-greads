@@ -6,22 +6,24 @@ block content
       .row
         include ../../includes/logo-top
         .col-md-8.col-md-offset-1.pull-left.mmmain
-          .col-md-4.pull-left  
-            p
-              img(src="#{author.portrait_url}" alt="Portrait of #{author.firstname} #{author.lastname}")
-          .col-md-8.pull-left    
-            p
-              h1 #{author.firstname} #{author.lastname}
-            p
-              | #{author.bio}
+          .col-md-12
             p
               a(href="/authors/#{author.id}/edit") Edit Author
               br
               a(href="/authors/#{author.id}/delete") Delete Author
+            hr
+          .col-md-4.pull-left  
+            p
+              img(src="#{author.portrait_url}" alt="Portrait of #{author.firstname} #{author.lastname}" width="100%")
+          .col-md-8.pull-left    
+            p
+              h1 #{author.firstname} #{author.lastname}
+            hr  
+            p
+              | #{author.bio}
             if books
-              p
-                h3 Books by #{author.firstname} #{author.lastname}
-                for book in books
-                  p
-                    a(href="/books/#{book.id}") #{book.title}
-                
+              h3 Books by #{author.firstname} #{author.lastname}
+              for book in books
+                p
+                  a(href="/books/#{book.id}") #{book.title}
+                    
