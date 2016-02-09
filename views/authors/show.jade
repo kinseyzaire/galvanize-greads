@@ -5,7 +5,7 @@ block content
     if author
       .row
         include ../../includes/logo-top
-        .col-md-8.col-md-offset-1.pull-left.mmmain
+        .col-md-8.col-md-offset-4.pull-left.mmmain
           .col-md-12
             p
               a(href="/authors/#{author.id}/edit") Edit Author
@@ -18,7 +18,6 @@ block content
           .col-md-8.pull-left    
             p
               h1 #{author.firstname} #{author.lastname}
-            hr  
             p
               | #{author.bio}
             if books

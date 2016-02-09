@@ -4,7 +4,7 @@ block content
   .container
     .row
       include ../../includes/logo-top
-      .col-md-8.col-md-offset-1.pull-left.mmmain
+      .col-md-8.col-md-offset-4.pull-left.mmmain
         a(href="/books/new") Add a Book
         hr  
         h1 Books
@@ -20,16 +20,26 @@ block content
                   p
                     h3  
                       a(href="/books/#{book.id}") #{book.title}      
-                    | By 
-                    a(href="/authors/#{book.author_id_1}") author 1
-                    span(style=( book.author_id_2 ? "display: inline-block" : "display: none" ))
-                      | , 
-                      a(href="/authors/#{book.author_id_2}") author 2
-                    span(style=( book.author_id_3 ? "display: inline-block" : "display: none" ))
-                      | ,  
-                      a(href="/authors/#{book.author_id_3}") author 3
+                  p
+                    if authors
+                      span(style=(book.author_id_1 ? "display: inline-block" : "display: none"))
+                        | By 
+                        - var namey = authors[book.author_id_1-1].firstname + " " + authors[book.author_id_1].lastname
+                        a(href="/authors/#{book.author_id_1}")=namey
+                      span(style=(book.author_id_2 ? "display: inline-block" : "display: none"))
+                        | , 
+                        if book.author_id_2 === !null
+                          - var namey2 = authors[book.author_id_2-1].firstname + " " + authors[book.author_id_2].lastname
+                          a(href="/authors/#{book.author_id_2}")=namey2
+                      span(style=(book.author_id_3 ? "display: inline-block" : "display: none"))
+                        | ,  
+                        if book.author_id_3 === !null
+                          - var namey3 = authors[book.author_id_3-1].firstname + " " + authors[book.author_id_3].lastname
+                          a(href="/authors/#{book.author_id_3}")=namey3
                   p
                     | #{book.genre} 
                   p  
                     | #{book.description}
               hr      
+
+              //- if book.author_id_1 === !null

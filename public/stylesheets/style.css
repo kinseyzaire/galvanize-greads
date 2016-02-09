@@ -25,3 +25,7 @@ a {
 .bbbook {
   overflow: auto;
 }
+
+#headerlogonlinks {
+  position: fixed;
+}

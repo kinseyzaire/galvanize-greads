@@ -4,7 +4,7 @@ block content
   .container
     .row
       include ../../includes/logo-top
-      .col-md-8.col-md-offset-1.pull-left.mmmain
+      .col-md-8.col-md-offset-4.pull-left.mmmain
         if book
           .col-md-12
             a(href="/books/#{book.id}/edit") Edit Book
@@ -21,7 +21,9 @@ block content
             .col-md-8.pull-left      
               p
                 | By 
-                a(href="/authors/#{book.author_id_1}") author
+                if authors
+                  for author in authors
+                    a(href="/authors/#{author.id}") #{author.firstname} #{author.lastname}
                 
             .col-md-8.pull-left      
               p
