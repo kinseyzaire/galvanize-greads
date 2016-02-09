@@ -20,9 +20,31 @@
     input.form-control(type="text" id="cover_url" name='cover_url' placeholder="Book Cover URL" value= (book ? book.cover_url : ''))
 .form-group
   if authors
-    p  
-    label(for="author_id") Add an Author
-    select.form-control(name="author_id" id="author_id")
-      option(disabled selected=(!book ? "selected" : undefined)) Choose Existing Author
-      for author in authors
-        option(value="#{author.id}" selected=(book ? (book.author_id === "#{author.id}" ? "selected" : undefined) : undefined)) #{author.firstname} #{author.lastname}
+    #auth1
+      p  
+      label(for="author_id_1") Add an Author
+      select.form-control(name="author_id_1" id="author_id_1")
+        option(disabled selected=(book.author_id_1 ? undefined : "selected")) Choose Existing Author
+        for author in authors
+          option(value="#{author.id}" selected=(book ? ("#{book.author_id_1}" === "#{author.id}" ? "selected" : undefined) : undefined)) #{author.firstname} #{author.lastname}
+    #addauth1(style=( book.author_id_2 ? "display: none" : "display: block" ))  
+      p
+        .btn.btn-default#askferauth2 Add Second Author
+    #auth2(style=( book.author_id_2 ? "display: block" : "display: none" ))      
+      p  
+      label(for="author_id_2") Add Second Author 
+      select.form-control(name="author_id_2" id="author_id_2")
+        option(disabled selected=(book.author_id_2 ? undefined : "selected")) Choose Existing Author
+        for author in authors
+          option(value="#{author.id}" selected=(book ? ("#{book.author_id_2}" === "#{author.id}" ? "selected" : undefined) : undefined)) #{author.firstname} #{author.lastname}
+    #addauth2(style=( book.author_id_3 ? "display: none" : "display: block" ))   
+      p
+        .btn.btn-default#askferauth3 Add Third Author
+    #auth3(style=( book.author_id_3 ? "display: block" : "display: none" ))      
+      p  
+      label(for="author_id_3") Add Third Author 
+      select.form-control(name="author_id_3" id="author_id_3")
+        option(disabled selected=(book.author_id_3 ? undefined : "selected")) Choose Existing Author
+        for author in authors
+          option(value="#{author.id}" selected=(book ? ("#{book.author_id_3}" === "#{author.id}" ? "selected" : undefined) : undefined)) #{author.firstname} #{author.lastname}
+//- (style=( !book.author_id_2 || book.author_id_3 ? "display: none" : "display: block" )) 
