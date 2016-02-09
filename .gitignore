@@ -32,3 +32,5 @@ npm-debug.log
 # CSV seeds
 authorsseed.csv
 booksseed.csv
+
+.env
