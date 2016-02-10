@@ -1,5 +1,7 @@
 var express = require('express');
 var knex = require('../db/knex.js');
+var validate = require('../lib/validations');
+
 var router = express.Router();
 
 function Books() {
@@ -30,9 +32,16 @@ router.get('/books/new', function(req, res, next) {
 // add new BOOK to db
 
 router.post('/books', function(req, res, next) {
-  Books().insert(req.body).then(function(result){
-    res.redirect('/books');
-  });
+  var error = validate.areUblank(req.body.title);
+  if(!validate.areUblank(req.body.title)) {
+      Books().insert(req.body).then(function(){
+        res.redirect('/books');
+      });
+    } else {
+      Authors().select().then(function(results){
+        res.render('books/new', {authors: results, error: error})
+      });
+    }
 });
 
 // show BOOK
@@ -58,10 +67,18 @@ router.get('/books/:id/edit', function (req, res) {
 // update BOOK in db
 
 router.post('/books/:id', function (req, res) {
-  Books().where('id', req.params.id).update(req.body)
-  .then(function(result){
-    res.redirect('/books');
-  });
+  var error = validate.areUblank(req.body.title);
+  if(!validate.areUblank(req.body.title)) {
+    Books().where('id', req.params.id).update(req.body).then(function(){
+      res.redirect('/books');
+    });
+  } else {
+    Books().where('id', req.params.id).first().then(function(result){
+      Authors().select().then(function(results){
+        res.render('books/edit', { book: result, authors: results, error: error });
+      });
+    });
+  }
 });
 
 // delete a BOOK

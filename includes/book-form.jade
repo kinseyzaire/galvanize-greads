@@ -3,6 +3,10 @@
     label(for="title") Book Title
     br
     input.form-control(type="text" id="title" name='title' placeholder="Book Title" value= (book ? book.title : ''))
+.errrrs
+  if error
+    p
+      h5(style="color: red;")= error
 .form-group
   p
     label(for="genre") Book Genre

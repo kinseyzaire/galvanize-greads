@@ -3,6 +3,10 @@
     label(for="firstname") First Name
     br
     input.form-control(type="text" id="firstname" name='firstname' placeholder="First Name" value= (author ? author.firstname : ''))
+.errrrs
+  if error
+    p
+      h5(style="color: red;")= error
 .form-group
   p
     label(for="lastname") Last Name
