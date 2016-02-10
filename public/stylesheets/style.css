@@ -38,3 +38,6 @@ a {
 #headerlogonlinks {
   position: fixed;
 }
+
+@media(min-width:999px){#headerlogonlinks {position: fixed;}}
+@media(max-width:998px){#headerlogonlinks {position: static;}}
